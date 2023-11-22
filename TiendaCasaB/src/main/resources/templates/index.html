@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="~{layout/plantilla :: head}">
+        <link href="../static.css/mis estilos.css" rel="stylesheet" type="text/css"/>
+        <title>Casa Blanca</title> 
+
+
+  
+    </head>
+    <body style="background-color: #00a8ce; padding: 0; margin: 0;">
+
+        <header th:replace="~{layout/plantilla :: header}"/>
+
+        <div id="contenedor" style="display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(to right, #00ccff, #ffffffc7);">
+
+            <h2 id="sub1" style=" color: white; font-size: 25px; font-weight: 900; margin: 19px; text-align: center;">REFRIGERADORAS CON DESCUENTOS DE HASTA ₡200.000 COLONES </h2>
+            <img id= "imgen" src="imagenes/refri.jpg" alt="imagen" style=" margin: 19px; height: 150px; width: 80px; text-align: center;" />
+        </div>
+        <div id="contenedor2">
+            <div id="columna-izquierda" style="  width: 20%; float: left; padding: 10px;  box-sizing: border-box;background-color: #00a8ce; margin: 0; position: sticky;">
+                <img id="telefono-logo" src="imagenes/telefono.png" alt=""/>
+                <p id="reco1" style="    display: inline-block; vertical-align: middle; margin-left: 10px; font-size: 25px;  font-family: sans-serif;  color: white;  font-weight: 700;">6006-6006</p>
+                <div class="reco-container" style=" background-color: white; border-style: double; margin-right: 3px;">
+                    <img id= "mesajes-logo" src="imagenes/mensajes.jpg" alt=""/>
+                    <p id="reco2" style="font-size: 25px; font-family: sans-serif; font-weight: 700;color: white; ">casablanca@gmail.com</p>
+                </div>
+                <p id="reco3" style="font-size: 25px; font-family: sans-serif; color: white;  text-align: center;">Todos nuestros productos ya incluyen iva</p>
+                <p id="reco4"style="font-size: 25px; font-family: sans-serif; color: white; font-weight: 700; text-align: center;">Nuestras tiendas</p>
+                <p id="reco8" style="font-size: 25px; font-family: sans-serif; font-weight: 700;color: white; ">San Jose</p>
+                <p id="reco5" style="  font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;">Del parque centra 400m este</p>
+                <p id="reco5" style="  font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;">Horario: Lunes a Sabado de 9am a 7pm</p>
+                <p id="reco5" style="  font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;">/Domingo Cerrado</p>
+                <br>
+                    <br>
+                        <p id="reco8" style="font-size: 25px; font-family: sans-serif; font-weight: 700;color: white; ">Alajuela</p>
+                        <p id="reco6" style="  font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;">150m sur de la tienda Lobets</p>
+                        <p id="reco6" style="  font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;">Horario: Lunes a Sabado de 9am a 7pm</p>
+                        <p id="reco6" style=" font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;" >/Domingo 10am a 6pm</p>
+                        <br>
+                            <br>
+                                <p id="reco8" style="font-size: 25px; font-family: sans-serif; font-weight: 700;color: white; ">Heredia</p>
+                                <p id="reco7" style="  font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;">Ofibodegas la Valencia. Local#3</p>
+                                <p id="reco7" style="  font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;">Horario: Lunes a Sabado de 9am a 6pm</p>
+                                <p id="reco7" style="  font-size: 25px; font-family: sans-serif; color: white; text-align: left; margin: 0;">/Domingo Cerrado</p>
+
+                                </div>
+                                <div class="columna-derecha" style=" width: 80%; float: left; padding: 5px; box-sizing: border-box;  background: #6dbccf; margin: 0;">
+                                    <div class="contenedorColumnaDerecha" style = " width: 100%; height: 1009px; border: 2px solid #000; overflow: hidden; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); border-style: none;">
+                                        <p id="Recomendaciones" style=" color: white; margin-left: 879px; font-size: -webkit-xxx-large; font-weight: bold; font-family: sans-serif;"> Recomendaciones </p>
+                                        <div id="cCD1" style=" background-image: url(imagenes/mico.jpg); background-size: 70% 30%;  background-position: center; background-repeat: no-repeat; width: 450px; height: 350px; border: 2px solid #6dbccf; border-radius: 10px; overflow: hidden; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); background-color: #00ccff; margin-left: 100px;"></div>
+                                        <div id="cCD2" style="background-image: url(imagenes/refri.jpg); background-size: 40%;  background-position: center; background-repeat: no-repeat; width: 450px; height: 350px; border: 2px solid #6dbccf; border-radius: 10px; overflow: hidden; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); background-color: #00ccff; margin-left: 100px; margin-top: 100px;"></div>
+                                        <div id="cCD3" style=" background-size: 40%;  background-position: center; background-repeat: no-repeat; width: 450px; height: 350px; border: 2px solid #6dbccf; border-radius: 10px; overflow: hidden; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); background-color: #00ccff; margin-left: 914px; margin-top: -351px;"></div>
+                                        <div id="cCD4" style="background-image: url(imagenes/secadora.jpg); background-size: 40%; background-position: center; background-repeat: no-repeat; width: 450px; height: 350px; border: 2px solid #6dbccf; border-radius: 10px; overflow: hidden; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); background-color: #00ccff; margin-left: 1728px; margin-top: -351px;"></div>
+                                        <div id="cCD5" style="  background-image: url(imagenes/secadora.jpg); background-size: 40%;  background-position: center; background-repeat: no-repeat; width: 450px; height: 350px; border: 2px solid #6dbccf; border-radius: 10px; overflow: hidden; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); background-color: #00ccff;  margin-left: 914px; margin-top: -812px;"></div>
+                                        <div id="cCD6" style="width: 450px; height: 350px; border: 2px solid #6dbccf; border-radius: 10px; overflow: hidden; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); background-color: #00ccff; margin-left: 1728px; margin-top: -354px;"></div>
+                                    </div>
+                                </div>
+                                </div>
+                                 </body>
+                                </html>
