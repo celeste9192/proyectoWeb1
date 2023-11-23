@@ -11,7 +11,7 @@
         <script th:src="@{/js/rutinas.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        
+
         <style>
             /* Estilo para el encabezado con fondo blanco */
             .header {
@@ -19,20 +19,22 @@
                 padding-bottom: 10px; /* Ajusta según sea necesario */
                 border-bottom: 1px solid #ddd; /* Línea separadora */
             }
+
+        
         </style>
     </head>
 
     <body>
         <header th:fragment="header" class="header">
-            
+
             <nav class="navbar navbar-expand-sm navbar-ligth bg-ligth p-0">
                 <div class="container">           
-                    <img src="../../static.imagenes/logoCasablanca.png" 
-                  
+                    
+                        <a style="font-size: 50px; font-weight: 900;" th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
 
-                         alt="Logo"
-                         max-width="250"
-                         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+
+                       
+                        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
@@ -63,37 +65,37 @@
                             </ul>
 
 
-                             <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
-                            <li class="nav-item">
-                                <a class="nav-link" th:href="@{/login}">
-                                    <i class="fas fa-sign-in-alt"></i>
-                                </a>
-                            </li>
-                        </ul>
-                        
-                        <ul class="navbar-nav" sec:authorize="isAuthenticated()">
-                            <li class="nav-item text-white my-auto">
-                                <img th:src="@{${session.usuarioImagen}}"
-                                     alt="Imágen del usuario"
-                                     height="40"
-                                     class="rounded-circle"/>
-                                <span sec:authentication="name">Santi</span>
-                            </li>
-                            <li class="nav-item my-auto">
-                                <form method="post" th:action="@{/logout}">
-                                    <button class="btn btn-dark">
-                                        <i class="fas fa-sign-out-alt"></i>
-                                    </button>
-                                    
-                                </form>
-                            </li>
-                        </ul>
-                        
-                    </div>
+                            <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
+                                <li class="nav-item">
+                                    <a class="nav-link" th:href="@{/login}">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                                <li class="nav-item text-white my-auto">
+                                    <img th:src="@{${session.usuarioImagen}}"
+                                         alt="Imágen del usuario"
+                                         height="40"
+                                         class="rounded-circle"/>
+                                    <span sec:authentication="name">Santi</span>
+                                </li>
+                                <li class="nav-item my-auto">
+                                    <form method="post" th:action="@{/logout}">
+                                        <button class="btn btn-dark">
+                                            <i class="fas fa-sign-out-alt"></i>
+                                        </button>
+
+                                    </form>
+                                </li>
+                            </ul>
+
+                        </div>
                 </div>
             </nav>
-           
+
         </header>
-        
+
     </body>
 </html>
