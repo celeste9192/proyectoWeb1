@@ -79,4 +79,14 @@ public class ProductoController {
         
         return "/producto/modifica";
     }   
+     @GetMapping("/listado3")
+    public String listado3(Model model) {
+        var productos = productoService.getProductos(false);
+        var categorias = categoriaService.getCategorias(false);
+
+        model.addAttribute("productos", productos);
+        model.addAttribute("categorias", categorias);
+
+        return "/producto/listado3";
+    }
 }
