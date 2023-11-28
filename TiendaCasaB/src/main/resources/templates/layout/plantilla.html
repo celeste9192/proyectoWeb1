@@ -16,7 +16,7 @@
             /* Estilo para el encabezado con fondo blanco */
             .header {
                 background-color: white;
-                padding-bottom: 10px; /* Ajusta según sea necesario */
+                
                 border-bottom: 1px solid #ddd; /* Línea separadora */
             }
 
@@ -27,25 +27,26 @@
     <body>
         <header th:fragment="header" class="header">
 
-            <nav class="navbar navbar-expand-sm navbar-ligth bg-ligth p-0">
+            <nav class="navbar navbar-expand-sm navbar-ligth bg-ligth">
                 <div class="container">           
 
-                    <a style="font-size: 50px; font-weight: 900;" th:href="@{/}" class="navbar-brand">[[#{aplicacion.titulo}]]</a>
-                    <a  th:href="@{/pruebas/listado3}">[[#{plantilla.productos2}]]</a>                
+                    <a style=" text-align: left; font-size: 50px; font-weight: 900;  margin-left: 10px; font-family: sans-serif;" th:href="@{/}" class="navbar-brand"  onmouseover="this.style.color='#00a8ce'" onmouseout="this.style.color='black'">[[#{aplicacion.titulo}]]</a>
+                    
+                    <a  style=" text-decoration: none; color: black; font-size: 20px; margin-left: 10px; font-family: sans-serif;" th:href="@{/pruebas/listado3}" onmouseover="this.style.color='#00a8ce'" onmouseout="this.style.color='black'">[[#{plantilla.productos2}]]</a>                
 
                     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <ul class="navbar-nav" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_VENDEDOR')">
-                            <li class="nav-item px-2 nav-dark"><a class="nav-link" th:href="@{/categoria/listado}">[[#{plantilla.categorias}]]</a></li>
-                            <li class="nav-item px-2 nav-dark"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>                           
+                            <li class="nav-item "><a  style="color: black; font-size: 20px; margin-left: 10px; font-family: sans-serif;" class="btn btn-outline-ligth" th:href="@{/categoria/listado}" onmouseover="this.style.color='#00a8ce'" onmouseout="this.style.color='black'">[[#{plantilla.categorias}]]</a></li>
+                            <li class="nav-item px-2 nav-dark"><a style="color: black; font-size: 20px; margin-left: 10px; font-family: sans-serif;" class="btn btn-outline-ligth" th:href="@{/producto/listado}" onmouseover="this.style.color='#00a8ce'" onmouseout="this.style.color='black'">[[#{plantilla.productos}]]</a></li>                           
                             <li class="nav-item dropdown nav-dark" sec:authorize="hasRole('ROLE_ADMIN')">
-                                <a class="nav-link dropdown-toggle" 
+                                <a style="color: black; font-size: 20px; margin-left: 10px; font-family: sans-serif;" class="nav-link dropdown-toggle" 
                                    data-bs-toggle="dropdown" 
                                    href="#" 
                                    role="button" 
-                                   aria-expanded="false">[[#{plantilla.pruebas}]]</a>
+                                   aria-expanded="false" onmouseover="this.style.color='#00a8ce'" onmouseout="this.style.color='black'">[[#{plantilla.pruebas}]]</a>
                                 <ul class="dropdown-menu dropdown-menu-dark" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <li><a class="dropdown-item" th:href="@{/usuario/listado}">[[#{plantilla.usuarios}]]</a></li>
                                     <li><a class="dropdown-item" th:href="@{/pruebas/listado}">[[#{plantilla.asociaciones}]]</a></li>
@@ -56,7 +57,7 @@
 
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">[[#{plantilla.idioma}]]</a>
+                                <a style="color: black; font-size: 20px; margin-left: 10px; font-family: sans-serif;" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" onmouseover="this.style.color='#00a8ce'" onmouseout="this.style.color='black'">[[#{plantilla.idioma}]]</a>
                                 <ul class="dropdown-menu dropdown-menu-dark">
                                     <li><a class="dropdown-item" th:href="@{/(lang=es)}">ES</a></li>
                                     <li><a class="dropdown-item" th:href="@{/(lang=en)}">EN</a></li>
@@ -64,7 +65,9 @@
                             </li>
                         </ul>
 
+                       
 
+                        </div>
                         <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
                             <li class="nav-item">
                                 <a class="nav-link" th:href="@{/login}">
