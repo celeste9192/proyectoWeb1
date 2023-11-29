@@ -6,7 +6,6 @@
         <title>Casa Blanca</title>
     </head>
     <body style="background-color: #00a8ce; padding: 0; margin: 0;">
-        <!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
         <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
             <div class="container">
                 <div class="row">
@@ -22,7 +21,7 @@
                 </div>
             </div>
         </section>
-        <!-- 2 Fragmento para agregar producto, es la ventana modal -->
+
         <section th:fragment="agregarProducto">
             <div id="agregarProducto" 
                  class="modal fade" 
@@ -67,15 +66,15 @@
                                 <div class="mb-3">
                                     <label for="imagen">[[#{producto.imagen}]]</label>
                                     <input class="form-control" type="file" name="imagenFile"
-                                           onchange="readURL(this);" >
-                                        <img id="blah" src="#" alt="your image" height="200"/>
+                                           onchange="readURL(this);" />
+                                    <img id="blah" src="#" alt="your image" height="200"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="activo">[[#{producto.activo}]]</label>
                                     <input class="form-check-input" 
                                            type="checkbox" 
                                            name="activo" 
-                                           id="activo">
+                                           id="activo"/>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -86,67 +85,90 @@
                 </div>
             </div>
         </section>
-        <!-- 3 Sección principal para mostrar la informaccion de la entidad producto -->
-        <section th:fragment="listadoProductos" id="productos">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>[[#{producto.listado}]]</h4>
-                            </div>
-                            <div th:if="${productos != null and !productos.empty}">
-                                <table class="table table-striped table-hover">
-                                    <thead class="table-dark">
-                                        <tr><th>#</th>
-                                            <th class="text-center">[[#{producto.descripcion}]]</th>
-                                            <th class="text-center">[[#{producto.precio}]]</th>
-                                            <th class="text-center">[[#{producto.existencias}]]</th>
-                                            <th class="text-center">[[#{producto.total}]]</th>
-                                            <th class="text-center">[[#{producto.activo}]]</th>
-                                            <th class="text-center">[[#{producto.categoria}]]</th>
-                                            <th></th><th></th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="producto, contador : ${productos}">
-                                            <td class="text-center">[[${contador.count}]]</td>
-                                            <td class="fs-6">[[${producto.descripcion}]]</td>
-                                            <td class="text-end">[[${#numbers.formatDecimal(producto.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
-                                            <td sec:authorize="hasRole('ROLE_ADMIN')">
-                                            <td class="text-center">[[${producto.existencias}]]</td>
-                                            <td class="text-end">[[${#numbers.formatDecimal(producto.precio*producto.existencias, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
-                                            
-                                            <td  class="text-center" th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
-                                            <td>[[${producto.categoria.descripcion}]]</td>
-                                            
-                                                
-                                            <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
-                                                   class="btn btn-danger">
-                                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a></td>
-                                            <td>
-                                                <a th:href="@{/producto/modificar/}+${producto.idProducto}"
-                                                   class="btn btn-success">
-                                                    <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="text-center p-2" th:if="${productos == null or productos.empty}">
-                                <span>[[#{lista.vacia}]]</span>
-                            </div>
-                        </div>
+
+        <section th:fragment="listadoProductos" id="productos" style="margin-top: 13px">
+            <div class="col-md-9" style="margin-left: 10px;
+                 width: 99.3%;">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>[[#{producto.listado}]]</h4>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card text-center bg-success text-white mb-3">
-                            <div class="card-body">
-                                <h3>[[#{producto.total}]]</h3>
-                                <h4 class="fs-2"><i class="fas fa-users"></i> [[${totalProductos}]]</h4>
-                            </div>
-                        </div>
+                    <div th:if="${productos != null and !productos.empty}">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark" style="    --bs-table-bg: #000000;">
+                                <tr><th>#</th>
+                                    <th class="text-center" style="width: 7%;">[[#{producto.Productos}]]</th>
+                                    <th class="text-center" style="width: 25%;">[[#{producto.precio}]]</th>
+                                    <th class="text-center" style="width: 6%;">[[#{producto.existencias}]]</th>
+                                    <th class="text-center" style="width: 29%;">[[#{producto.total}]]</th>
+                                    <th class="text-center"style="width: 5%;">[[#{producto.categoria}]]</th>
+                                    <th style="color: black">   ###          </th>  
+                                    <th style="color: black">   ###          </th>
+                                    <th style="color: black">   ###          </th>  
+                                    <th style="color: black">   ###          </th>
+                                    <th style="color: black">   ###          </th>  
+                                    <th style="color: black">   ###          </th>
+
+                                    <th><button  style="   margin-left: 276px;
+                                                 width: 39%;"
+                                                 type="button" 
+                                                 class="btn btn-primary btn-block" 
+                                                 data-bs-toggle="modal" 
+                                                 data-bs-target="#agregarProducto">
+                                            <i class="fas fa-plus"></i> [[#{producto.agregar}]]
+                                        </button></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="producto, contador : ${productos}">
+                                    <td class="text-center">[[${contador.count}]]</td>
+                                    <td class="fs-6" >[[${producto.descripcion}]]</td>
+                                    <td class="text-center">[[${#numbers.formatDecimal(producto.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>
+                                    <td class="text-center">[[${producto.existencias}]]</td>
+                                    <td class="text-center">[[${#numbers.formatDecimal(producto.precio*producto.existencias, 1, 'DEFAULT', 2, 'DEFAULT')}]]</td>       
+                                    <td class="text-center">[[${producto.categoria.descripcion}]]</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>  
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                    <td class="text-center">
+                                        <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
+                                           class="btn btn-danger" style="width: 101%">
+                                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
+                                        <a th:href="@{/producto/modificar/}+${producto.idProducto}"
+                                           class="btn btn-success" style="width: 101%;     --bs-btn-color: #fff;
+                                           --bs-btn-bg: #4691ff;
+                                           --bs-btn-border-color: #4691ff;
+                                           --bs-btn-hover-color: #fff;
+                                           --bs-btn-hover-bg: #0e2b56;
+                                           --bs-btn-hover-border-color: #0e2b56;
+                                           --bs-btn-focus-shadow-rgb: 60,153,110;
+                                           --bs-btn-active-color: #fff;
+                                           --bs-btn-active-bg: #4691ff;
+                                           --bs-btn-active-border-color: #4691ff;
+                                           --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+                                           --bs-btn-disabled-color: #fff;
+                                           --bs-btn-disabled-bg: #0e2b56;
+                                           --bs-btn-disabled-border-color: #0e2b56;"
+                                           >
+                                            <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]</a></tr>
+                                </td>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-center p-2" th:if="${productos == null or productos.empty}">
+                        <span>[[#{lista.vacia}]]</span>
                     </div>
                 </div>
             </div>
+
         </section>
-        <!-- 4 Fragmento que se utiliza en la página modifca.html -->
+
         <section th:fragment="editarProducto">
             <div class="row">
                 <div class="col-md-2"></div>
@@ -221,7 +243,6 @@
                 </div>
             </div>
         </section>
-        <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
         <section th:fragment="botonesEditar">
             <div class="container py-4 mb-4 bg-light">
                 <div class="row">

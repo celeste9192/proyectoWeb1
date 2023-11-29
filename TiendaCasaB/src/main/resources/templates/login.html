@@ -6,43 +6,38 @@
     <head th:replace="~{layout/plantilla :: head}">
         <title> Casa Blanca</title>
         <meta charset="UTF-8"/>
-
-
-
+        <style>
+            .container my-4 col-lg-4{
+                margin-left: 1104px
+            }
+        </style>
     </head>
     <body style="background-color: #00a8ce; padding: 0; margin: 0;">
         <header th:replace="~{layout/plantilla :: header}"/>
-        <div class="container my-4 col-lg-4" >
-
-
-
+        <div class="container my-4 col-lg-4" style="margin-left: 1057px;">
             <div class="card col-sm-10">
-                <div class="card-header "  style="background-color: black; color: white; "><h2>[[#{login.login}]]</h2></div>
-                <div class="card-body " >
+                <div class="card-header "  style="background-color: black; color: white; text-align: center;"><h2>[[#{login.login}]]</h2></div>
+                <div class="card-body ">
                     <form method="POST" th:action="@{/login}">
                         <div class="form-group   text-center ">
-
-                           <h3>[[#{login.presentacion}]]</h3>
                         </div>
-                        <div class="form-group  ">
-                            <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{login.username}]]:</label>
-                            <div class="col-md-7 my-auto text-center">
+                        <div class="form-group  " style=" margin-top: 97px;">
+                            <label class="col-md-5 my-auto" for="username" style="font-size: 20px"><i class="fas fa-user-lock"></i>[[#{login.username}]]:</label>
+                            <div class="col-md-7 my-auto text-center" style="width: 100%; margin-top: 40px;font-size: 30px;">
                                 <input class="form-control text-center" type="text" name="username" id="username"/></div>
                         </div>
-
-
-
-                        <div class="form-group">
-                            <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{login.password}]]</label>
-                                    <div class="col-md-7 my-auto"><input class="form-control" type="password" name="password" id="password"/></div></div>
-                                <div class="card-footer col text-center">
-                                    <button class="btn btn-primary" >
-                                        <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a></button>
-                                    <button class="btn btn-info" >                                        
-                                        <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a></button>
-                                    <button class="btn btn-success" type="submit">
-                                        <span class="btn"><i class="fas fa-sign-in-alt"></i>
-                                            [[#{login.login}]]</span></button>
+                        <div class="form-group" style=" margin-top: 10px;">
+                            <label class="col-md-5 my-auto" for="password" style="font-size: 20px"><i class="fas fa-key"></i>[[#{login.password}]]</label>
+                            <div class="col-md-7 my-auto" style="width: 100%;font-size: 30px">
+                            <input class="form-control" type="password" name="password" id="password"/></div>
+                        </div>
+                        <div class="card-footer col text-center" style="border-top: 0px; margin-top: 130px; background-color: white; width: 102%;padding-left:0px ;">
+                            <button class="btn btn-primary" style="background-color: #3dd5f3;     margin-left: 5px;" >
+                                <a th:href="@{/registro/nuevo}" class="btn"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a></button>
+                            <button class="btn btn-info" style="background-color: #3dd5f3; margin-left: 138px;">                                        
+                                <a th:href="@{/registro/recordar}" class="btn"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a></button>
+                            <button class="btn btn-success" style="background-color: #3dd5f3; margin-left: 127px;" type="submit">
+                                <span class="btn"><i class="fas fa-sign-in-alt"></i> [[#{login.login}]]</span></button>
                         </div>
                     </form>                            
                 </div>
@@ -50,9 +45,6 @@
             <div th:if="${param.error != null}">
                 <h3>[[#{error.login}]]</h3>
             </div>
-        </div>
-        </div>           
-        </div>
-
+        </div>        
     </body>
 </html>

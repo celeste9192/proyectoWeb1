@@ -54,7 +54,7 @@ public class PruebasController {
         model.addAttribute("productos", productos);
         model.addAttribute("precioInf", precioInf);
         model.addAttribute("precioSup", precioSup);
-        return "/pruebas/listado2";
+        return "/pruebas/listado3";
     }
     @PostMapping("/query2")
     public String consultaQuery2(@RequestParam(value = "precioInf") double precioInf,

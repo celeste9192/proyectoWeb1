@@ -9,8 +9,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 /* Estilos para el encabezado */
 
-header {
-    background-color: #ffffff;
+.header {
+    background-color: white;
     color: black; /* Color del texto */
     padding:15px; /* Espaciado interno */
     margin: 0;
@@ -498,4 +498,8 @@ body{
     text-align: left;
     margin-top: -7px;
     margin-left: 20px;
+}
+
+.productos{
+    
 }
